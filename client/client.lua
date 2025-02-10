@@ -87,8 +87,8 @@ end
 
 local function PromptSetUp()
 	local str = "Press"
-	OpenStores = UiPromptRegisterBegin()
-	UiPromptSetControlAction(OpenStores, Config.General.keys["G"])
+	OpenStores = PromptRegisterBegin()
+	PromptSetControlAction(OpenStores, Config.General.keys["G"])
 	str = CreateVarString(10, 'LITERAL_STRING', str)
 	PromptSetText(OpenStores, str)
 	PromptSetEnabled(OpenStores, 1)
@@ -445,6 +445,8 @@ Citizen.CreateThread(function()
 		Wait(sleep)
 	end
 end)
+
+PromptSetUp()
 
 CreateThread(function()
 	repeat Wait(1000) until LocalPlayer.state.IsInSession
